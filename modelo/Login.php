@@ -94,7 +94,7 @@ private $nivel;
     }
     
    public function buscarLogin($cod, $pas) {
-        $sql =  " SELECT * FROM login WHERE idLogin='$cod' and clave='$pas'"; 
+        $sql =  "SELECT  Nivel FROM persona WHERE Identificacion='$cod' and Clave='$pas'"; 
         $param = array($cod, $pas);
         $this->__setSql($sql);
         $resultado = $this->consultar($sql, $param);

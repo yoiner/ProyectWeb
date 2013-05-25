@@ -49,23 +49,23 @@ private function  getParametros (Nivel $Tpers ){
          
      //Funciones CRUD
 
-    public function crearTipoPerso(Nivel $Tper) {
+    public function crearNivel(Nivel $Tper) {
         $sql = "INSERT INTO nivel (idNivel,  Nivel) VALUES (?,?)";
         $this->__setSql($sql);
         $this->ejecutar($this->getParametros($Tper));
     }
 
-    public function leerTipoPerso() {
-        $sql = "SELECT idNivel,  Descripcion FROM nivel";
+    public function leerNivel() {
+        $sql = "SELECT idNivel,  Nivel FROM nivel";
         $this->__setSql($sql);
         $resultado = $this->consultar($sql);
         $Tpersonal = array();
-        foreach ($resultado as $fila) {
+    /*    foreach ($resultado as $fila) {
             $Tper = new Nivel();
             $this->mapearTipoPers($Tper, $fila);
             $Tpersonal[$Tper->getIdNivel()] = $Tper;
-        }
-        return $Tpersonal;
+        } */
+        return $resultado;
     }
 }
 

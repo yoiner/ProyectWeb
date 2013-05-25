@@ -90,28 +90,27 @@ class Persona  extends Modelo{
             $Afil->setNivel($props['Nivel']);
             } 
          }  
-   private function  getParametros (Persona $afiliado ){
+   private function  getParametros (Persona $perso ){
        
              $parametros = array(
-                 ':Nafilia' =>$afiliado ->getNafilia(),
-                 ':TipoDoc'  =>$afiliado ->getTipoDoc(),
-                 ':Identificacion' =>$afiliado ->getIdentificacion(),
-                 ':Nombre' =>$afiliado ->getNombre(),
-                 ':Apellidos' =>$afiliado->getApellidos(),
-                 ':FecNac'  =>$this->formatearFecha($afiliado ->getFecNac()),
-                 ':FecAfilia'  =>$this->formatearFecha($afiliado ->getFecAfilia()),
-                 ':sexo' =>$afiliado ->getSexo(),
-                 ':Ocupacion'  =>$afiliado ->getOcupacion(),
-                 ':EstaCivil' =>$afiliado ->getEstaCivil(), 
-                 ':Municipio' =>$afiliado ->getMunicipio(),
-                 ':Barrio' =>$afiliado->getBarrio(),
-                 ':Dire'  =>$afiliado ->getDire(),
-                 ':Tele' =>$afiliado ->getTele(),
-                 ':Email'  =>$afiliado ->getEmail(),
-                 ':Estrato' =>$afiliado ->getEstrato(), 
-                 ':Estado' =>$afiliado ->getEstado(),
-                 ':Clave' =>$afiliado ->getClave(),
-                 ':Nivel' =>$afiliado ->getNivel()    
+                 ':Nafilia' =>$perso->getNafilia(),
+                 ':FecAfilia' => $this->formatearFecha($perso->getFecAfilia()),
+                 ':TipoDoc'  =>$perso->getTipoDoc(),
+                 ':Identificacion' =>$perso->getIdentificacion(),
+                 ':Nombre' =>$perso->getNombre(),
+                 ':Apellidos' =>$perso->getApellidos(),
+                 ':FecNac'  =>$this->formatearFecha($perso->getFecNac()),
+                 ':sexo' =>$perso->getSexo(),
+                 ':EstaCivil' =>$perso->getEstaCivil(), 
+                 ':Municipio' =>$perso->getMunicipio(),
+                 ':Barrio' =>$perso->getBarrio(),
+                 ':Direccion'  =>$perso->getDireccion(),
+                 ':Telefono' =>$perso->getTelefono(),
+                 ':Email'  =>$perso->getEmail(),
+                 ':Estrato' =>$perso->getEstrato(), 
+                 ':Estado' =>$perso->getEstado(),
+                 ':Clave' =>$perso->getClave(),
+                 ':Nivel' =>$perso->getNivel()    
              );
              return $parametros;
  
@@ -264,16 +263,14 @@ class Persona  extends Modelo{
   
   
   // FUNCIONES CRUD
- public function crearAfiliados (Persona$afil) {
-        $sql = "INSERT INTO persona
-     ( Nafilia, TipoDoc, Identificacion,   TipoAfilia, Nombre, Apellidos, FecNac,  FecAfilia,  Sexo,
-    Ocupacion, EstaCivil, Municipio, Barrio, Direccion, Telefono, Email, Estrato, Estado, Clave, Nivel)
-      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+ public function crearPersona (Persona $afil) {
+        $sql = "INSERT INTO persona (Nafilia, TipoDoc, Identificacion,   TipoAfilia, Nombre, Apellidos, FecNac,  FecAfilia,  Sexo, Ocupacion, EstaCivil, Municipio, Barrio, Direccion, Telefono, Email, Estrato, Estado, Clave, Nivel)
+      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'Activo',?,?)";
         $this->__setSql($sql);
         $this->ejecutar($this->getParametros($afil));
     }
 
-    public function leerAfiliados() {
+    public function leerPersona() {
         $sql = "SELECT * FROM persona";
         $this->__setSql($sql);
         $resultado = $this->consultar($sql);
@@ -286,7 +283,7 @@ class Persona  extends Modelo{
         return $personas;
     }
 
-    public function actualizarAfiliados(Persona $afil) {
+    public function actualizarPersona(Persona $afil) {
         $sql = "UPDATE persona SET  
     TipoDoc=?, Identificacion=?,   TipoAfilia=?, Nombre=?, Apellidos=?,FecNac=?,  FecAfilia=?,  Sexo=?,  Ocupacion=?, EstaCivil=?,
     Muni_Fk=?, Barrio=?, Direccion=?, Telefono=?, Email=?, Estrato=?, Estado=?, Clave=?, Nivel=? WHERE Identificacion=?";
@@ -294,14 +291,13 @@ class Persona  extends Modelo{
         $this->ejecutar($this->getParametros($afil));
     }
     
-    public function eliminarAfiliados(Persona $afil) {
+    public function eliminarPersona(Persona $afil) {
         $sql = "UPDATE persona SET  Estado='Inactivo'  where Identificacion=?";
         $this->__setSql($sql);
         $param = array(':Identificacion' => $afil->getIdentificacion());
         $this->ejecutar($param);        
     }     
-    
-
+   
 }
 
 ?>

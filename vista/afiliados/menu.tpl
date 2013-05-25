@@ -31,9 +31,9 @@
    	  </div>
         <div id="menu">
             <ul>
-                <li><a href="file:///C|/Users/WDAM/Documents/MedSystem/Pages/index.html" class="current">Inicio</a></li>
+                <li><a href="/ProyectWeb/index" class="current">Inicio</a></li>
                 <li><a href="#">Quienes Somos</a></li>
-                <li><a href="file:///C|/Users/WDAM/Documents/MedSystem/Pages/Pages/Afiliar.html">Servicios</a></li>
+                <li><a href="file:///C|/Users/WDAM/Documents/MedSystem/Pages/Pages/Afiliar.html">Afiliarse</a></li>
                 <li><a href="#">Informes</a></li>
                 <li><a href="#">Contactenos</a></li>
             </ul>

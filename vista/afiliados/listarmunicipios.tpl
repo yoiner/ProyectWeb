@@ -1,6 +1,6 @@
 <?php
 echo "{";foreach ($municipios as $munic) {
-    echo "'".$munic->getMunic()."':'".$munic->getMunic()."',"; 
+    echo "'".$munic->getIdMuni()."':'".$munic->getMunic()."',"; 
 }
 echo "}";
 ?>

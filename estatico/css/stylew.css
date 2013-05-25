@@ -1,0 +1,44 @@
+.formm{
+	margin: 0px 10px 0px 0px;
+	padding: 0px;
+	text-align: right;	
+}
+
+.labell{
+	font-weight:bold;
+	margin-right: 10px;
+        text-align: right;
+}
+
+.inputt{
+	width: 150px;
+	height: 16px;
+	text-align:left;
+	border:groove;
+	azimuth:center-right;
+        
+}
+
+.buttonn{
+	width: 70px;
+	height: 25px;
+        color: #666666;
+}
+.button_011{
+	   
+	display:block;
+	margin: 15px;
+	width: 100px;
+	height: 26px;
+	color: #0a8eb8;
+	font-size: 16px;
+	font-weight: normal;
+	text-align: center;
+	text-decoration:none;
+	background: url(../images/button.png) no-repeat;
+}
+.button_011:hover{
+	background: url(../images/button_hover.png) no-repeat;
+	color: #333333;
+}
+

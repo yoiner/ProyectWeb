@@ -7,7 +7,7 @@
     </head>
     <body>
         <p>
-            <?php include HOME . DS . 'includes' . DS . 'menu.php'; ?>
+        
         </p>
         <h2>DATOS</h2>
         

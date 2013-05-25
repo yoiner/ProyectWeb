@@ -85,19 +85,19 @@
             <div class="rightbig_button"><a href="#">Atencion al  Usuario</a></div>
             <div class="rightbig_button"><a href="#">Training  &amp; Education</a></div>
           
-            <div id="right_box02">
+              <div id="right_box02">
                 <div class="rightbox02_top">
-                    <h2 align="center">Our Customers Say</h2>
+                    <h2 align="center">Preguntas Frecuentes</h2>
                 </div>
                 <div class="rightbox02_bottom">
                     <div class="customer_section">
-                        <img src="file:///C|/Users/WDAM/Documents/MedSystem/Pages/images/templatemo.gif" alt="templatemo logo" />                
-                        <p> Pellentesque mattis, faucibus vitae, feugiat vitae.</p>
+                        <img src="/<?php echo APPNAME;?>/estatico/images/templatemo.gif" alt="templatemo logo" />                
+                        <p> ¿ Como apartar una cita ?.</p>
                       <div class="more_button"><a href="http://www.templatemo.com" target="_parent">More...</a></div>
                     </div>
                     <div class="customer_section">
-                        <img src="file:///C|/Users/WDAM/Documents/MedSystem/Pages/images/flashmo.gif" alt="flashmo logo" />                
-                        <p>Nam sit amet justo vel libero tincidunt dignissim.</p>
+                        <img src="/<?php echo APPNAME;?>/estatico/images/flashmo.gif" alt="flashmo logo" />                
+                        <p>¿No puedo acceder a la plataforma?.</p>
                         <div class="more_button"><a href="http://www.flashmo.com" target="_parent">More...</a></div>
                     </div>
                 </div>

@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8" />
   <link href="/<?php echo APPNAME;?>/estatico/css/style.css"   rel="stylesheet" type="text/css" />
+  <link href="/<?php echo APPNAME;?>/estatico/css/stylew.css"   rel="stylesheet" type="text/css" />
   <link href="/<?php echo APPNAME;?>/estatico/css/calendar-tas.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="/<?php echo APPNAME;?>/estatico/js/calendar.js" > </script>
+<script type="text/javascript" src="/<?php echo APPNAME;?>/estatico/js/calendar.js" > </script>
 <script type="text/javascript" src="/<?php echo APPNAME;?>/estatico/js/calendar-setup.js"  > </script>
 <script type="text/javascript"  src="/<?php echo APPNAME;?>/estatico/js/calendar-es.js" > </script>
-    <title><?php echo $titulo; ?></title>
+<title><?php echo $titulo; ?></title>
 
  <script type="text/javascript">
             //Funcion de Ajax
@@ -27,23 +28,23 @@
                     if (ajax.readyState == 4) {
                         if (ajax.status == 200) {
                             var datos = ajax.responseText;
-                            alert(datos);
-                        }
+                              alert(datos);
+                              document.getElementById('muni').valueOf(datos);
+		       }
                     }
                 }
-                ajax.open("GET", "/ProyectWeb/vista/afiliados/listarmunicipios/" + depto, true);
+                ajax.open("GET", "/ProyectWeb/afiliados/listarmunicipios/" + depto, true);
                 ajax.send(null);
             }
-            window.onload = function() {
-                document.getElementById('deptos').onchange = function() {
-                    var depto = document.getElementById('deptos').options[document.getElementById('deptos').selectedIndex].value;
+            window.onload = function() { 
+             Calendar.setup({ inputField: "fecNac", ifFormat: "%Y / %m / %d"});  
+                    document.getElementById('depart').onchange = function() {
+                    var depto = document.getElementById('depart').options[document.getElementById('depart').selectedIndex].value;
                     llenarCiudades(depto);
-      
-                 Calendar.setup({ inputField: "fecha", ifFormat: "%d / %m / %Y", button: "Selector"});    
-                    
-                }
+               }
             }
         </script>
+
 </head>
 
 <body>
@@ -72,7 +73,7 @@
             <ul>
                 <li><a href="/ProyectWeb/index" class="current">Inicio</a></li>
                 <li><a href="#">Quienes Somos</a></li>
-                <li><a href="/ProyectWeb/vista/afiliados/index">Servicios</a></li>
+                <li><a href="/ProyectWeb/afiliados/index">Afiliarse</a></li>
                 <li><a href="#">Informes</a>
                 </li><li><a href="#">Contactenos</a></li>
             </ul>
@@ -92,7 +93,7 @@
                     <h2>Acceso de Usuarios</h2>
                 </div>
                 <div class="leftcolumn_box01_bottom">
-                    <form method="get" action="#">
+                     <form method="post" action="/ProyectWeb/login/acceso">
                       <div class="form_row"><label>Usuario</label><input class="inputfield" name="email_address" type="text" id="email_addremss"/></div>
                         <div class="form_row"><label>Contraseña</label><input class="inputfield" name="password" type="password" id="password"/></div>
                         <input class="button" type="submit" name="Entrar" value="Entrar" id="Entrar" />
@@ -102,13 +103,13 @@
             </div>
             
             <div id="leftcolumn_box02">
-            	<h2>Lorem ipsum dolor</h2>
+            	<h2>Servicios</h2>
                 <ul>
-                    <li><a href="#">Mauris blandit vehicula</a></li>
-                  <li><a href="#">Cool Website Two</a></li>
-                    <li><a href="#">Aliquam tristique lacus</a></li>
-                    <li><a href="http://www.flashmo.com" target="_parent">Flash Templates</a></li>
-                    <li><a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a></li>
+                    <li><a href="#">Medicina General</a></li>
+                  <li><a href="#">Odontologia</a></li>
+                    <li><a href="#">Pediatria</a></li>
+                    <li><a href="#">Atencion Prioritaria</a></li>
+                    <li><a href="#">Farmacia</a></li>
                 </ul>
             </div>
             
@@ -125,140 +126,116 @@
 <div  id="templatemo_middle_Modificado">
 <h1>Bienvedidos .. !!</h1>
           <p>Por favor Ingrese todos los datos.</p>
-             <form id="form2" name="form2" method="post" action="/ProyectWeb/vista/afiliados/guardar.php">
-            <table width="100%" border="0"> 
+          <form action="/ProyectWeb/afiliados/guardar" method="post" name="Registrar" id="Registrar" >
+            <table width="100%" border="0" align="left">
               <tr>
-                <td width="17%"><div align="right">Tipo de Afiliacion:</div></td>
-                <td width="33%"><div align="left">
-                  <select name="Afil" id="Afil3">
-                    <option value="00"> </option>
-                    <option value="01">Contributivo</option>
-                    <option value="02">Subsidiado</option>
-                    <option value="03">Particular</option>
-                    <option value="04">Beneficiario</option>
-                    <option value="05">Otro</option>
-                  </select>
-                </div></td>
-                <td width="21%"><label for="Nafili">
-                  <div align="right">N° Afiliacion</div>
-                </label></td>
-                <td width="29%"><div align="left">
-                  <input type="text" name="Nafili" id="Nafili" />
-                </div></td>
+                <td width="209"><div class="labell">N° Registro</div></td>
+                <td width="208" align="left"><input class="inputt"  type="text" name="nRegistro" id="nRegistro"></td> 
+                <td width="251"><div class="labell">Fecha Afiliacion</div></td>
+                <td width="318" align="left"><input name="FecAfilia" type="text" class="inputt" id="FecAfilia" maxlength="10"></td>
               </tr>
               <tr>
-                <td><label for="TipDoc">
-                  <div align="right">Tipo Documento
-                  </div>
-                </label></td>
-                <td><div align="left">
-                  <select name="TipDoc" id="TipDoc">
-                    <option value="NN"></option>
-                    <option value="C.C">Cedula</option>
-                    <option value="P.P">Pasaporte</option>
-                    <option value="R.C">Registro Civil</option>
-                    <option value="T.I">Tarjeta Identidad</option>
-                  </select>
-                </div></td>
-                <td><div align="right">Identificacion</div></td>
-                <td><div align="left">
-                  <input type="text" name="ident" id="ident" />
-                </div></td>
+                <td><label class="labell">Tipo Documento</label></td>
+                <td  align="left"> <select name="tipodoc" id="tipodoc">
+                        <option>Seleccione </option>
+                    <?php foreach ($Document as $docu){ ?>
+                            <option value="<?php echo $docu['idTipoDoc']; ?>"><?php echo $docu['Descripcion'];?></option>
+                            <?php } ?>
+                </select></td>
+                <td><div class="labell">N° Documento</div></td>
+                <td align="left"><input class="inputt"  type="text" name="identificacion" id="identificacion"></td>
               </tr>
               <tr>
-                <td><label for="nomb">
-                  <div align="right">Nombres
-                  </div>
-                </label></td>
-                <td><div align="left">
-                  <input name="nomb" type="text" id="nomb" size="0" maxlength="60" />
-                </div></td>
-                <td><label for="Apel">
-                  <div align="right">Apellidos</div>
-                </label></td>
-                <td><div align="left">
-                  <input type="text" name="Apel" id="Apel" />
-                </div></td>
+                  <td><div class="labell">Nombre</div></td>
+                <td align="left"><input class="inputt"  type="text" name="nombre" id="nombre"></td>
+                <td> <div class="labell">Apellidos</div></td>
+                <td align="left"><input class="inputt"  type="text" name="apellido" id="apellido"></td>
               </tr>
               <tr>
-                <td align="right">Sexo</td>         
-                <td>&nbsp;</td>
-                <td><label for="fecha">Fecha Nacimiento</label></td>
-                <td><label for="fecha2"></label>
-                  <div align="left">
-                    <input type="text" name="fecha" id="fecha" /> 
-                <img src="/<?php echo APPNAME;?>/estatico/images/calendar.png"  id = "Selector"/></div></td>
+                  <td> <div class="labell">Fecha Nacimiento</div></td>
+                <td align="left"><input class="inputt"  type="text" name="fecNac" id="fecNac">
+                <td><div class="labell">Sexo</div></td>
+                <td  align="left"><select name="sex" id="sex">
+                  <option>........</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
+                </select></td>
               </tr>
               <tr>
-                <td><label for="deptos">
-                  <div align="right">Departamento
-                  </div>
-                </label></td>
-                <td><div align="left">
-                      
-                      <select name="deptos" id="deptos" >
-                          <?php foreach ($deptos as $depto){ ?>
+                  <td> <div class="labell">Departamento</div></td>
+                <td align="left"><select name="depart" id="depart">
+                   <option>Seleccione </option>
+                    <?php foreach ($deptos as $depto){ ?>
                             <option value="<?php echo $depto['CodDepart']; ?>"><?php echo $depto['departamento'];?></option>
                             <?php } ?>
-                        </select>
-                      
-                </div></td>
-                <td><label for="Muni">
-                  <div align="right">Municipio</div>
-                </label></td>
-                <td><div align="left">
-                  <select name="Muni" id="Muni">
-                  </select>
-                </div></td>
+                </select></td>
+                <td><div class="labell">Municipio</div></td>
+                <td align="left"><select name="muni" id="muni">
+                 <?php foreach ($deptos as $munici){ ?>
+                    <option value="<?php echo $munici->getIdMuni(); ?>"><?php echo $munici->getMunic();?></option>
+                   <?php } ?>
+                
+                </select></td>
               </tr>
               <tr>
-                <td><label for="Barri">
-                  <div align="right">Barrio</div>
-                </label></td>
-                <td><div align="left">
-                  <input type="text" name="Barri" id="Barri" />
-                </div></td>
-                <td><label for="dire">
-                  <div align="right">Direccion</div>
-                </label></td>
-                <td><div align="left">
-                  <input type="text" name="dire" id="dire" />
-                </div></td>
+                  <td><div class="labell">Barrio</div></td>
+                <td align="left"><input class="inputt"  type="text" name="barrio" id="barrio"></td>
+                <td><div class="labell">Direccion</div></td>
+                <td align="left"><input  class="inputt"  type="text" name="direcc" id="direcc"></td>
               </tr>
               <tr>
-                <td><label for="TelF">
-                  <div align="right">Tel.  Fijo</div>
-                </label></td>
-                <td><div align="left">
-                  <input type="text" name="TelF" id="TelF" />
-                </div></td>
-                <td><label for="TelM">
-                  <div align="right">Tel. Movil</div>
-                </label></td>
-                <td><div align="left">
-                  <input type="text" name="TelM" id="TelM" />
-                </div></td>
+                  <td><div class="labell">Telefono</div></td>
+                <td align="left"><input  class="inputt" type="text" name="tele" id="tele"></td>
+                <td><div class="labell">E-mail</div></td>
+                <td align="left"><input class="inputt"  type="text" name="email" id="email"></td>
               </tr>
               <tr>
-                <td><label for="email">
-                  <div align="right">E-mail</div>
-                </label></td>
-                <td><div align="left">
-                  <input type="text" name="email" id="email" />
-                </div></td>
-                <td>&nbsp;</td>
-                <td><div align="left"></div></td>
+                  <td><div class="labell">Estrato</div></td>
+                <td align="left"><select name="estr" id="estr">
+                  <option>Seleccione</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select></td>
+                <td><div class="labell">Estado Civil</div></td>
+                <td align="left"><select name="estcivil" id="estcivil">
+                  <option>seleccione</option>
+                  <option value="Casado">Casado(a)</option>
+                  <option value="Soltero">Soltero(a)</option>
+                  <option value="Viudo(a)">Viudo(a)</option>
+                  <option value="Union Libre">Union Libre</option>
+                  <option value="Otro">Otro</option>
+                </select></td>
+              </tr>
+              <tr>
+                  <td><div class="labell">Contraseña</div></td>
+                <td align="left"><input class="inputt"  name="pass" type="password" id="pass" value=""></td>
+                <td><div class="labell">Confirmar Contraseña</div></td>
+                <td align="left"><input class="inputt"  type="password" name="verpass" id="verpass"></td>
+              </tr>
+              <tr>
+                  <td><div class="labell">Nivel Usuario</div></td>
+                <td align="left"><select name="nivel" id="nivel">
+                         <option>Seleccione </option>
+                    <?php foreach ($Tpersonal as $depto){ ?>
+                            <option value="<?php echo $depto['idNivel']; ?>"><?php echo $depto['Nivel'];?></option>
+                            <?php } ?>
+                </select></td>
+                <td><div class="labell">Confirmar E-mail</div></td>
+                <td align="left"><input class="inputt"  type="text" name="veremail" id="veremail"></td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td><div align="left"></div></td>
+                <td colspan="2" align="center"><input  class="button" type="submit" name="agregarusuario" id="agregarusuario" value="Enviar"></td>
+                <td align="left"><input  class="button" type="reset" name="cancelar" id="cancelar" value="Cancelar"></td>
               </tr>
-          </table>
-              <div class="button_01" align="center" > <a href="#">Guardar</a></div>
-      </form>
-   	  </div>
+            </table>
+</form>
+          <p>&nbsp;</p>
+</div>
         
         <!-- end of middle column -->
         
@@ -271,6 +248,6 @@
         
 	<div id="templatemo_footer">
         <a href="/ProyectWeb/index">Inicio</a> | <a href="#">Quienes Somos</a> | <a href="#">Servicios</a> | <a href="#">Informes</a> | <a href="#">Contactenos</a><br />
-Copyright ©  2013 <a href="#">ValleSalud-SS</a> | Designed by <a href="http://www.templatemo.com" target="_blank">templatemo.com</a></div></div>
+Copyright ©  2013 <a href="/ProyectWeb/index">ValleSalud-SS</a> | Designed by <a href="http://www.templatemo.com" target="_blank">templatemo.com</a></div></div>
 </body>
 </html>

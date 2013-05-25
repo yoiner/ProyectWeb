@@ -73,22 +73,28 @@
         
     	<div id="templatemo_middle_column">
         
-        	<h1>Recuperacion de Contraseña.. !!</h1>
-          <p> Para recuperar la contraseña debe introducir los siguientes datos</p>
-          <p>
-              Le enviaremos un Correo electronico para poder recuperarla
-            </p> 
+        	<h1>Nueva Contraseña.. !!</h1>
+          <p> Ingrese la Nueva Contraseña</p>
+          <p>&nbsp;</p> 
           <form action="/ProyectWeb/login/enviarcorreo" method="post" name="recuperar" id="recuperar">
             <table width="100%" height="154" border="0" cellspacing="5">
               <tr>
                 <td><strong>Id Usuario </strong></td>
-                <td align="left"><input type="text" name="ident" id="ident">
-                *</td>
+                <td align="left"><input name="ident" type="text" id="ident" readonly="readonly"></td>
               </tr>
               <tr>
                 <td><strong>Correo Electronico </strong></td>
-                <td align="left"><input  class="inputt" type="text" name="email" id="email">
-                *</td>
+                <td align="left"><input name="email" type="text"  class="inputt" id="email" readonly="readonly"></td>
+              </tr>
+              <tr>
+                <td ><strong>Nueva Contraseña</strong></td>
+                <td align="left"><input class="inputt" type="password" name="contra1" id="contra1">
+                <strong>*</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Confirmar Contraseña</strong></td>
+                <td align="left"><input class="inputt" type="password" name="contr2" id="contr2">
+                <strong>*</strong></td>
               </tr>
               <tr>
                 <td colspan="2" align="center">  <?php    echo  "<span class='error'>";
@@ -97,7 +103,7 @@
               </tr>
                  <tr>
                     
-                  <td align="right"> <input class="button_011" type="submit" name="acept" id="acept" value="Aceptar"></td>
+                  <td align="right"> <input class="button_011" type="submit" name="acept" id="acept" value="Guardar"></td>
                   <td align="center"><input class="button_011" type="reset" name="cancel" id="cancel" value="Cancelar"></td>
               </tr>
             </table>

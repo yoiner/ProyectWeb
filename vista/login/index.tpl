@@ -33,8 +33,8 @@
             <ul>
                 <li><a href="/ProyectWeb/index" >Inicio</a></li>
                 <li><a href="#">Quienes Somos</a></li>
-                <li><a href="/ProyectWeb/afiliados/index" >Servicios</a></li>
-                <li><a href="/ProyectWeb/afiliados/menu">Soluciones</a></li>
+                <li><a href="/ProyectWeb/afiliados/index" >Afiliarse</a></li>
+                <li><a href="/ProyectWeb/login/menuafiliado">Soluciones</a></li>
                 <li><a href="/ProyectWeb/personal/index">Contactenos</a></li>
             </ul>
         </div>
@@ -65,17 +65,16 @@
                 
             </div>
             
-            <div id="leftcolumn_box02">
-            	<h2>Lorem ipsum dolor</h2>
+          <div id="leftcolumn_box02">
+            	<h2>Servicios</h2>
                 <ul>
-                    <li><a href="#">Mauris blandit vehicula</a></li>
-                  <li><a href="#">Cool Website Two</a></li>
-                    <li><a href="#">Aliquam tristique lacus</a></li>
-                    <li><a href="http://www.flashmo.com" target="_parent">Flash Templates</a></li>
-                    <li><a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a></li>
+                    <li><a href="#">Medicina General</a></li>
+                  <li><a href="#">Odontologia</a></li>
+                    <li><a href="#">Pediatria</a></li>
+                    <li><a href="#">Atencion Prioritaria</a></li>
+                    <li><a href="#">Farmacia</a></li>
                 </ul>
             </div>
-            
 			<div id="imagebutton">
             	<a href="#"><img src="/<?php echo APPNAME;?>/estatico/images/livechat.gif" alt="live chat" /></a>
 			</div>
@@ -88,7 +87,7 @@
         
     	<div id="templatemo_middle_column">
         
-        	<h1>Bienvedidos .. !! probando proyect</h1>
+        	<h1>Bienvedidos .. !!</h1>
           <p>
             This free CSS layout is provided by templatemo.com. Feel free to edit and apply this template layout for your personal or commercial websites. Credit goes to <a href="http://fantasybrushes.deviantart.com/" target="_blank">Marilyn</a>  for photoshop brush applied in header graphics.</p>
           <p>
@@ -96,31 +95,28 @@ Pellentesque vitae magna. Sed nec est. Suspendisse a nibh tristique justo rhoncu
             </p> <br />
             
             <div id="section1">
-            	<h3>Duis vitae velit sed dui</h3>
-              <h4>Lorem ipsum dolor sit amet</h4>
+            	<h3>Informacion</h3>
+              <h4>Estamos en Construccion</h4>
                 <p>
-            Duis pulvinar scelerisque ante. Morbi tristique, risus quis congue pulvinar, nisl nisi commodo diam, a porta nisi ligula ac massa. Vestibulum blandit lacus sed sapien. <a href="#">Read more...</a>
+                     Recuerde tener un poco de paciencia por ahora... . <a href="#">Read more...</a>
             	</p>
-                <h4>Quisque rhoncus nulla quis sem</h4>
+                <h4>:)</h4>
                 <p>
-           Fusce sollicitudin nisl a lectus. Pellentesque odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. <a href="#">Read more...</a>            	</p>
+                     Trabajamos para ofrecerle un mejor servicio. <a href="#">Read more...</a></p>
           </div>
             
             <div id="section2">
                 <div class="section2_top">
-                    <h2>Lorem ipsum dolor</h2>
+                    <h2>Desarrolladores</h2>
                 </div>
                 <div class="section2_bottom">
-			      	<ul>
-                        <li><a href="#">Vestibulum blandit lacus</a></li>
-                        <li><a href="#">Mauris blandit vehicula</a></li>
-                        <li><a href="#">Proin consectetuer</a></li>
-                        <li><a href="http://www.flashmo.com" target="_parent">Flash Resources</a></li>
-                        <li><a href="http://www.templatemo.com" target="_parent">Website Templates</a></li>
-                        <li><a href="#">Cras urna metus</a></li>
-                        <li><a href="#">Nunc quis seme</a></li>
-					</ul>
-                    <div class="more_button"><a href="#">More...</a></div>
+			<ul>
+                        <li><a href="#">Yoiner Valle Machado</a></li>
+                        <li><a href="#">Rodrigo Silva Covilla</a></li>
+                        <li><a href="#">Mario</a></li>
+                        <li><a href="#">Wendell Arias Martinez</a></li>
+                        </ul>
+                    <div class="more_button"><a href="#">Mas...</a></div>
             	</div>
             </div>
             
@@ -133,22 +129,27 @@ Pellentesque vitae magna. Sed nec est. Suspendisse a nibh tristique justo rhoncu
         <div id="templatemo_right_column">
         
             <div class="rightbig_button"><a href="#">Atencion al  Usuario</a></div>
-            <div class="rightbig_button"><a href="#">Training  &amp; Education</a></div>
+            <div class="rightbig_button"><a href="#">Promocion &amp; Prevencion</a></div>
           
-            <div id="right_box02">
+                <div id="right_box02">
                 <div class="rightbox02_top">
-                    <h2 align="center">Our Customers Say</h2>
+                    <h2 align="center">Preguntas Frecuentes</h2>
                 </div>
                 <div class="rightbox02_bottom">
                     <div class="customer_section">
-                        <img src="/images/templatemo.gif" alt="templatemo logo" />                
-                        <p> Pellentesque mattis, faucibus vitae, feugiat vitae.</p>
-                      <div class="more_button"><a href="#" target="_parent">More...</a></div>
+                        <img src="/<?php echo APPNAME;?>/estatico/images/order.ico" alt="templatemo logo" />    
+                        <p> ¿ Como apartar una cita ?.</p>             
+                        <div class="more_button"><a href="http://www.templatemo.com" target="_parent">Ver +...</a></div>
                     </div>
                     <div class="customer_section">
-                        <img src="/images/flashmo.gif" alt="flashmo logo" />                
-                      <p>Nam sit amet justo vel libero tincidunt dignissim.</p>
-                        <div class="more_button"><a href="#" target="_parent">More...</a></div>
+                        <img src="/<?php echo APPNAME;?>/estatico/images/ast.ico" alt="flashmo logo" />                
+                        <p>¿No puedo acceder a la plataforma?.</p>
+                        <div class="more_button"><a href="http://www.flashmo.com" target="_parent">Ver +...</a></div>
+                    </div>
+                    <div class="customer_section">
+                        <img src="/<?php echo APPNAME;?>/estatico/images/user.jpg" alt="flashmo logo" />                
+                        <p>¿como afiliarse?.</p>
+                        <div class="more_button"><a href="http://www.flashmo.com" target="_parent">Ver +...</a></div>
                     </div>
                 </div>
             </div>

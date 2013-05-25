@@ -36,6 +36,44 @@ class LoginControl extends Controlador{
                       echo 'Error de aplicacion: '.$exc->getMessage();
         }
     }
+      public function menuafiliado() {
+        $this->vista->set('titulo', 'ValleSalud-SS');
+        return $this->vista->imprimir();
+}
+  public function menuadmin() {
+        $this->vista->set('titulo', 'Menu Administrador');
+          return $this->vista->imprimir();
+       }
+       
+  public function enviarcorreo() {
+               
+         if (isset($_POST['acept'])) {
+             
+            $user= isset($_POST['ident']) ? $_POST['ident'] : NULL;
+            $correo= isset($_POST['email"']) ? $_POST['email"']:NULL; 
+            $busc= $this->modelo->buscarLogin($user, $correo);
+            if ($busc==NULL){
+                $this->setVista('recordar');
+                $this->vista->set('titulo', 'Recuperar Contraseña');
+                $this->vista->set('mensaje', 'Usuario o Correo Electronico Incorrecto'); 
+                           
+              }  
+            else{
+                $this->setVista('enviarcorreo');
+            }
+          }
+         
+        sleep(1);
+          return $this->vista->imprimir();
+       }  
+ //--------------------------------      
+       public function nuevapassword() {
+           $this->vista->set('titulo', 'Nueva Contraseña'); 
+           $this->vista->set('mensaje', ''); 
+        //   sleep(1);
+          return $this->vista->imprimir();
+       }
+  //-------- acceder a la aplicacion     
  Public function acceso(){
         if (isset($_POST['Entrar'])) {
               $user= isset($_POST['usuario']) ? $_POST['usuario'] : NULL;
@@ -67,10 +105,9 @@ class LoginControl extends Controlador{
       }
  }
  public function  salir () {
-      
-         $this->vista->set('titulo', 'SALIENDO DE LA APLICACION');
-            sleep(3);
-                return $this->vista->imprimir();       
+         $this->vista->set('titulo', 'Salir');
+           sleep(2);
+         return $this->vista->imprimir();       
  }
 }
 

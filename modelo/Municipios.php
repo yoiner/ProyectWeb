@@ -85,22 +85,21 @@ class Municipios  extends Modelo{
         $this->ejecutar($this->getParametros($Muni));
     }
 
-    public function leerMunicipios($departamento = '') {
-        $sql = "SELECT m.idMunicipios, m.CodDepart, m.Nombre as munic, d.Nombre as depto FROM vallesaludss.municipios m, vallesaludss.departamentos d
-             WHERE m.CodDepart=d.CodDepart";
-        $sql.= empty($departamento) ? $departamento : "AND d.CodDepart= ".$departamento;
+    public function leerMunicipios($departamento='') {
+        $sql = "SELECT m.idMuni, m.CodDepart, m.Nombre as munic, d.Nombre as depto FROM municipios m, departamentos d WHERE m.CodDepart=$departamento";
+       // $sql.= empty($departamento) ? $departamento : 'AND d.CodDepart= '.$departamento;
         $this->__setSql($sql);
         $resultado = $this->consultar($sql);
         $municipios = array();
         foreach ($resultado as $fila) {
             $Muni = new Municipios();
             $this->mapearMunicipios($Muni, $fila);
-            $municipios[$Muni->getIdMunicipios()] = $Muni;
-        }
+            $municipios[$Muni->getIdMuni()] = $Muni;
+        } 
         return $municipios;
     }
      public function leerDepartamento(){
-        $sql = "SELECT CodDepart, Nombre as departamento FROM vallesaludss.departamentos";
+        $sql = "SELECT CodDepart, Nombre as departamento FROM departamentos";
         $this->__setSql($sql);
         $res = $this->consultar($sql);
         $deptos = array();
@@ -109,13 +108,13 @@ class Municipios  extends Modelo{
 
 
     public function actualizarMunicipios(Municipios $Muni) {
-        $sql = "UPDATE vallesaludss.Municipios SET  idMuni=?, Nombre=?, CodDepart=? WHERE idMunicipios=?";
+        $sql = "UPDATE municipios SET  idMuni=?, Nombre=?, CodDepart=? WHERE idMuni=?";
         $this->__setSql($sql);
         $this->ejecutar($this->getParametros($Muni));
     }
     
     public function eliminarMunicipios(Municipios $Muni) {
-        $sql = "DELETE vallesaludss.Municipios where idMuni=?";
+        $sql = "DELETE municipios where idMuni=?";
         $this->__setSql($sql);
         $param = array(':idMuni' => $Muni->getIdMuni());
         $this->ejecutar($param);        

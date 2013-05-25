@@ -59,12 +59,13 @@ private function  getParametros (Tipodocumento $Documen ){
         $this->__setSql($sql);
         $resultado = $this->consultar($sql);
         $Document = array();
-        foreach ($resultado as $fila) {
+        return $resultado;
+     /*   foreach ($resultado as $fila) {
             $Docu = new Tipodocumento();
             $this->mapearDocumento($Docu, $fila);
             $Document[$Docu->getIdTipoDoc()] = $Docu;
-        }
-        return $Document;
+        } */
+      
     }
 }
 

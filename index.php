@@ -21,6 +21,9 @@ function cargadorClases(){
     require_once './modelo/Afiliados.php';
     require_once './modelo/Municipios.php';
     require_once './modelo/Personal.php';
+    require_once './modelo/Persona.php';
+    require_once './modelo/Tipodocumento.php';
+    require_once './modelo/Nivel.php';
     require_once './controlador/Controlador.php';
     require_once './controlador/LoginControl.php';
     require_once './controlador/AfiliadosControl.php';
