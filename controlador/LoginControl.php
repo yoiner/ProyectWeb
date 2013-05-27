@@ -14,11 +14,13 @@ class LoginControl extends Controlador{
 
     public function index() {
         try {
-          /*session_start();
+          session_start();
             if (!isset($_SESSION['usuario.id'])) {
-                $this->setVista('salir');
-               // return $this->vista->imprimir();
-            } */
+                 $this->setVista('index');
+                 $this->vista->set('mensaje', '');
+                 $this->vista->set('titulo', 'Salir');
+                return $this->vista->imprimir();
+            } 
             $this->vista->set('titulo', 'ValleSalud-SS');
             $this->vista->set('mensaje', '');
             return $this->vista->imprimir();

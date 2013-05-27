@@ -5,63 +5,77 @@
  * @author WDAM
  */
 class Login  extends Modelo{
-Private $idLogin;
-private $clave;
-private $nivel;
+    Private $identificacion;
+    private $Clave;
+    private $Nivel;
+    private $Email;
 
- public function __construct() {
+    public function __construct() {
         parent::__construct();
     }
- private function mapearLogin(Login $Logi, array $props) {
-        if (array_key_exists('idLogin', $props)) {
-            $Logi->setIdLogin($props['idLogin']);
+
+    private function mapearLogin(Login $Logi, array $props) {
+        if (array_key_exists('Identificacion', $props)) {
+            $Logi->setIdentificacion($props['Identificacion']);
         }
-        if (array_key_exists('clave', $props)) {
-            $Logi->setClave($props['clave']);
+        if (array_key_exists('Clave', $props)) {
+            $Logi->setClave($props['Clave']);
         }
-        if (array_key_exists('nivel', $props)) {
-            $Logi->setNivel($props['nivel']);
+        if (array_key_exists('Nivel', $props)) {
+            $Logi->setNivel($props['Nivel']);
         }
-         }
-         private function  getParametros ( Login $login ){
-       
-             $parametros = array(
-                 ':idLogin' =>$login ->getIdLogin(),
-                 ':clave'  =>$login ->getClave(),
-                 ':nivel' =>$login ->getNivel()
-             );
-             return $parametros;
-         }           
-     
-         
-      // Getter y setter 
-         public function getIdLogin() {
-             return $this->idLogin;
-         }
+        if (array_key_exists('Email', $props)) {
+            $Logi->setEmail($props['Email']);
+        }
+    }
 
-         public function setIdLogin($idLogin) {
-             $this->idLogin = $idLogin;
-         }
+    private function getParametros(Login $login) {
 
-         public function getClave() {
-             return $this->clave;
-         }
+        $parametros = array(
+            ':Identificacion' => $login->getIdentificacion(),
+            ':Clave' => $login->getClave(),
+            ':Nivel' => $login->getNivel(),
+            ':Email' => $login->getEmail()
+        );
+        return $parametros;
+    }
 
-         public function setClave($clave) {
-             $this->clave = $clave;
-         }
+    // Getter y setter 
+    public function getIdentificacion() {
+        return $this->identificacion;
+    }
 
-         public function getNivel() {
-             return $this->nivel;
-         }
+    public function setIdentificacion($identificacion) {
+        $this->identificacion = $identificacion;
+    }
 
-         public function setNivel($nivel) {
-             $this->nivel = $nivel;
-         }
+    public function getClave() {
+        return $this->Clave;
+    }
 
- //Funciones CRUD
+    public function setClave($Clave) {
+        $this->Clave = $Clave;
+    }
 
-    public function crearLogin (Login $Logi) {
+    public function getNivel() {
+        return $this->Nivel;
+    }
+
+    public function setNivel($Nivel) {
+        $this->Nivel = $Nivel;
+    }
+
+    public function getEmail() {
+        return $this->Email;
+    }
+
+    public function setEmail($Email) {
+        $this->Email = $Email;
+    }
+
+    //Funciones CRUD
+
+    public function crearLogin(Login $Logi) {
         $sql = "INSERT INTO vallesaludss.login (idLogin, clave, nivel) VALUES (?,?,?)";
         $this->__setSql($sql);
         $this->ejecutar($this->getParametros($Logi));
@@ -85,16 +99,16 @@ private $nivel;
         $this->__setSql($sql);
         $this->ejecutar($this->getParametros($Logi));
     }
-    
+
     public function eliminarLogin(Login $Logi) {
         $sql = "DELETE vallesaludss.login where idLogin=?";
         $this->__setSql($sql);
         $param = array(':idLogin' => $Logi->getIdLogin());
-        $this->ejecutar($param);        
+        $this->ejecutar($param);
     }
     
    public function buscarLogin($cod, $pas) {
-        $sql =  "SELECT  Nivel FROM persona WHERE Identificacion='$cod' and Clave='$pas'"; 
+        $sql =  "SELECT  Nivel, Identificacion, Clave FROM persona WHERE Identificacion='$cod' and Clave='$pas'"; 
         $param = array($cod, $pas);
         $this->__setSql($sql);
         $resultado = $this->consultar($sql, $param);
