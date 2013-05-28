@@ -62,7 +62,7 @@ class Persona  extends Modelo{
          } 
           
           if (array_key_exists('Municipio', $props)) {
-            $Afil->setMuni_Fk($props['Municipio']);
+            $Afil->setMunicipio($props['Municipio']);
          } 
           if (array_key_exists('Barrio', $props)) {
             $Afil->setBarrio($props['Barrio']);
@@ -296,7 +296,21 @@ class Persona  extends Modelo{
         $this->__setSql($sql);
         $param = array(':Identificacion' => $afil->getIdentificacion());
         $this->ejecutar($param);        
-    }     
+    }    
+    public function leerPersonaPorMail($documento, $email) {
+        //TODO: Hacer las funciones de encriptacion en php 
+        //$clave = encriptar_sha($clave)
+        $sql = "SELECT * FROM persona WHERE Identificacion='$documento' AND Email='$email'";
+        $param = array($documento, $email);
+        $this->__setSql($sql);
+        $res = $this->consultar($sql, $param);
+        $persona = NULL;
+        foreach ($res as $fila) {
+            $persona = new Persona();
+            $this->mapearPersona($persona, $fila);
+        }
+        return $persona;
+    }
    
 }
 

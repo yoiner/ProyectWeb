@@ -75,14 +75,8 @@ class Login  extends Modelo{
 
     //Funciones CRUD
 
-    public function crearLogin(Login $Logi) {
-        $sql = "INSERT INTO vallesaludss.login (idLogin, clave, nivel) VALUES (?,?,?)";
-        $this->__setSql($sql);
-        $this->ejecutar($this->getParametros($Logi));
-    }
-
-    public function leerLogin() {
-        $sql = "SELECT idLogin, clave, nivel FROM vallesaludss.login";
+   public function leerLogin() {
+        $sql = "SELECT Identificacion, Clave, Nivel, Email  FROM persona";
         $this->__setSql($sql);
         $resultado = $this->consultar($sql);
         $Logueados = array();
@@ -92,19 +86,6 @@ class Login  extends Modelo{
             $Logueados[$Logi->getIdLogin()] = $Logi;
         }
         return $Logueados;
-    }
-
-    public function actualizarLogin(Login $Logi) {
-        $sql = "UPDATE vallesaludss.login SET clave=?, nivel=? WHERE idLogin=?";
-        $this->__setSql($sql);
-        $this->ejecutar($this->getParametros($Logi));
-    }
-
-    public function eliminarLogin(Login $Logi) {
-        $sql = "DELETE vallesaludss.login where idLogin=?";
-        $this->__setSql($sql);
-        $param = array(':idLogin' => $Logi->getIdLogin());
-        $this->ejecutar($param);
     }
     
    public function buscarLogin($cod, $pas) {

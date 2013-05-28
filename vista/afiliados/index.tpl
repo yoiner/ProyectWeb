@@ -29,7 +29,7 @@
                         if (ajax.status == 200) {
                             var datos = ajax.responseText;
                               alert(datos);
-                              document.getElementById('muni').valueOf(datos);
+                             
 		       }
                     }
                 }

@@ -29,7 +29,11 @@ function cargadorClases(){
     require_once './controlador/AfiliadosControl.php';
     require_once './controlador/MunicipiosControl.php';
     require_once './controlador/PersonalControl.php';
+    require_once './controlador/PersonaControl.php';
     require_once './vista/Vista.php';
+    require_once './utiles/class.phpmailer.php';
+    require_once './utiles/class.pop3.php';
+    require_once './utiles/class.smtp.php';
      
 }
 

@@ -16,9 +16,8 @@ class LoginControl extends Controlador{
         try {
           session_start();
             if (!isset($_SESSION['usuario.id'])) {
-                 $this->setVista('index');
-                 $this->vista->set('mensaje', '');
-                 $this->vista->set('titulo', 'Salir');
+                 $this->setVista('usuarionoregistrado');
+                 $this->vista->set('titulo', 'No registrado');
                 return $this->vista->imprimir();
             } 
             $this->vista->set('titulo', 'ValleSalud-SS');
@@ -100,7 +99,7 @@ class LoginControl extends Controlador{
                      }         
                   
              session_start();
-            $_SESSION['usuario.id'] = $busc->getIdLogin();
+            $_SESSION['usuario.id'] = $busc->getIdentificacion();
            }
       return $this->vista->imprimir();
       
@@ -111,6 +110,12 @@ class LoginControl extends Controlador{
            sleep(2);
          return $this->vista->imprimir();       
  }
+ public function  usuarionoregistrado () {
+         $this->vista->set('titulo', 'No registrado');
+           sleep(2);
+         return $this->vista->imprimir();       
+ }
+ 
 }
 
 ?>
