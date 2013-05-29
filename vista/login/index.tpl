@@ -18,7 +18,7 @@
             	ValleSalud-SS</div>
       </div>
         <div id="header">
-        	<div class="title">Le Ofrecemos<br />
+        	<div class="title"> Ofreciendo<br />
 	        	<span class="bigtext">Los Mejores Servicios </span><br />
 	        	En Salud.</div>
 
